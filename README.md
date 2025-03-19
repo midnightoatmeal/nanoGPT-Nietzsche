@@ -1,6 +1,6 @@
 # NanoGPT Nietzsche - Bigram Language Model
 
-This project implements a simplified GPT-like model, trained on Friedrich Nietzsche's *Thus Spoke Zarathustra*. The goal is to explore language modeling using PyTorch and generate Nietzsche-inspired text.
+This project fine-tunes a GPT model on Friedrich Nietzsche’s Thus Spoke Zarathustra, based on Karpathy’s NanoGPT implementation. The goal is to explore philosophical text generation and analyze how well a transformer model can replicate Nietzsche’s writing style.
 
 ## Features
 - Implementation of a Bigram Transformer-based Language Model.

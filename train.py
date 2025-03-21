@@ -13,12 +13,9 @@ import torch.optim as optim
 from torch.utils.data import Dataset, DataLoader
 import requests
 import os
+import requests
 
-# 📌 Download Nietzsche’s *Thus Spoke Zarathustra* from Project Gutenberg
-DATASET_PATH = "data/thus_spoke_zarathustra.txt"
-
-if not os.path.exists("data"):
-    os.makedirs("data")
+DATASET_PATH = "/content/thus_spoke_zarathustra.txt"
 
 if not os.path.exists(DATASET_PATH):
     print("Downloading *Thus Spoke Zarathustra* dataset...")
@@ -27,12 +24,15 @@ if not os.path.exists(DATASET_PATH):
     with open(DATASET_PATH, "w", encoding="utf-8") as f:
         f.write(response.text)
 
+print("✅ Dataset ready!")
+
 # 📌 Load and preprocess dataset
 with open(DATASET_PATH, "r", encoding="utf-8") as f:
     text = f.read()
 
 # Tokenization (Character-Level)
 chars = sorted(set(text))
+print(chars)
 stoi = {ch: i for i, ch in enumerate(chars)}
 itos = {i: ch for ch, i in stoi.items()}
 encode = lambda s: [stoi[c] for c in s]

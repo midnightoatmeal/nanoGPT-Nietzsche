@@ -24,6 +24,13 @@ The model is a lightweight Transformer-based architecture with:
 - Validation loss after 5000 steps: **1.85**
 
 ### Example Output
-```text
-Freeth of ill my from stals!.
-It te cast all the reause hates, however...
+**Prompt:** tell me about life!
+
+**Output:**
+
+tell me about life! O hair look at the suffering and
+forgetfulness.
+
+O Zarathustra, the stronger selfishness is the evidently all over infelling because he had it PRAD, thou lovest time with the values him.
+
+...

@@ -67,6 +67,6 @@ def generate_text(prompt, length=200, temperature=1.0):
 if __name__ == "__main__":
     prompt = input("Enter a Nietzschean-style prompt: ")
     generated_text = generate_text(prompt, length=500, temperature=0.8)
-    print("\n📝 Generated Text:\n")
+    print("\nGenerated Text:\n")
     print(generated_text)
 

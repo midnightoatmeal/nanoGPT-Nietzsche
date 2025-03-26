@@ -24,7 +24,7 @@ if not os.path.exists(DATASET_PATH):
     with open(DATASET_PATH, "w", encoding="utf-8") as f:
         f.write(response.text)
 
-print("✅ Dataset ready!")
+print("Dataset ready!")
 
 # 📌 Load and preprocess dataset
 with open(DATASET_PATH, "r", encoding="utf-8") as f:
@@ -110,5 +110,5 @@ for epoch in range(EPOCHS):
 
 # 📌 Save model
 torch.save(model.state_dict(), "nietzsche_gpt.pth")
-print("✅ Model training complete! Saved as 'nietzsche_gpt.pth'.")
+print("Model training complete! Saved as 'nietzsche_gpt.pth'.")
 

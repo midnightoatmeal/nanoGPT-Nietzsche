@@ -26,7 +26,7 @@ if not os.path.exists(DATASET_PATH):
 
 print("Dataset ready!")
 
-# 📌 Load and preprocess dataset
+# Load and preprocess dataset
 with open(DATASET_PATH, "r", encoding="utf-8") as f:
     text = f.read()
 
@@ -45,7 +45,7 @@ data = torch.tensor(encode(text), dtype=torch.long)
 n = int(0.9 * len(data))
 train_data, val_data = data[:n], data[n:]
 
-# 📌 Define a Minimal Transformer-Based GPT Model
+# Define a Minimal Transformer-Based GPT Model
 class SimpleGPT(nn.Module):
     def __init__(self, vocab_size, embed_dim, hidden_dim):
         super().__init__()
@@ -59,7 +59,7 @@ class SimpleGPT(nn.Module):
         x = self.fc(x)
         return x
 
-# 📌 Model Parameters
+# Model Parameters
 VOCAB_SIZE = len(chars)
 EMBED_DIM = 256
 HIDDEN_DIM = 512
@@ -68,7 +68,7 @@ SEQ_LEN = 100
 EPOCHS = 10
 LR = 0.002
 
-# 📌 Prepare dataset
+# Prepare dataset
 class TextDataset(Dataset):
     def __init__(self, data, seq_len):
         self.data = data
@@ -87,13 +87,13 @@ val_dataset = TextDataset(val_data, SEQ_LEN)
 train_loader = DataLoader(train_dataset, batch_size=BATCH_SIZE, shuffle=True)
 val_loader = DataLoader(val_dataset, batch_size=BATCH_SIZE)
 
-# 📌 Initialize model
+# Initialize model
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 model = SimpleGPT(VOCAB_SIZE, EMBED_DIM, HIDDEN_DIM).to(device)
 criterion = nn.CrossEntropyLoss()
 optimizer = optim.Adam(model.parameters(), lr=LR)
 
-# 📌 Training loop
+#  Training loop
 for epoch in range(EPOCHS):
     model.train()
     total_loss = 0
@@ -108,7 +108,7 @@ for epoch in range(EPOCHS):
 
     print(f"Epoch {epoch+1}/{EPOCHS}, Loss: {total_loss / len(train_loader):.4f}")
 
-# 📌 Save model
+# Save model
 torch.save(model.state_dict(), "nietzsche_gpt.pth")
 print("Model training complete! Saved as 'nietzsche_gpt.pth'.")
 
